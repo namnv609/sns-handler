@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  # adapter: sqlite3
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: sns-handler_development
+
+test:
+  <<: *default
+  database: sns-handler_test
+
+production:
+  <<: *default
+  database: sns-handler_production
+  username: sns-handler
+  password: <%= ENV['SNS-HANDLER_DATABASE_PASSWORD'] %>
