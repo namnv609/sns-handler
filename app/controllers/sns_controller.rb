@@ -43,6 +43,6 @@ class SnsController < ApplicationController
   end
 
   def write_log log_content
-    File.open("request_logs", "a+") { |file| file.puts log_content }
+    Log.create content: log_content
   end
 end
